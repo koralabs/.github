@@ -1,0 +1,20 @@
+name: PR validation
+on:
+  pull_request:
+  push:
+    branches: [master]
+permissions:
+  contents: read
+jobs:
+  markdown:
+    name: Organization profile Markdown validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      # Preserve existing spacing style; still check heading order, link syntax,
+      # empty links, code fences, and the remaining default Markdown rules.
+      - run: npx --yes markdownlint-cli@0.45.0 README.md profile/README.md --disable MD013 MD041 MD022 MD032 MD009
