@@ -1,0 +1,6 @@
+# Exact repository-root-relative paths. No wildcards, no directory prefixes.
+# This repo only holds the GitHub organization profile page. Nothing in it carries money, identity, signing, or on-chain behaviour.
+# Only the policy files and the profile page (the one public thing it publishes) are protected.
+.enclave
+CANONICAL_CONTRACT.md
+profile/README.md
